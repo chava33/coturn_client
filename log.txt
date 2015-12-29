@@ -1,0 +1,1567 @@
+(gdb) r -T -v -n 200 -m 1 -l 100 -y -g $@ 159.203.11.169 
+The program being debugged has been started already.
+Start it from the beginning? (y or n) y
+Starting program: /usr/local/bin/turnutils_uclient -T -v -n 200 -m 1 -l 100 -y -g $@ 159.203.11.169
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 26, main (argc=12, argv=0x7fffffffdf98) at src/apps/uclient/mainuclient.c:166
+166	{
+(gdb) c
+Continuing.
+
+Breakpoint 9, start_mclient (remote_address=0x7fffffffe381 "159.203.11.169", port=3478, ifname=0x6323e0 <client_ifname> "", local_address=0x7fffffffd990 "", messagenumber=200, mclient=1)
+    at src/apps/uclient/uclient.c:1366
+1366		if (mclient < 1)
+(gdb) 
+Continuing.
+
+Breakpoint 20, start_c2c (remote_address=0x7fffffffe381 "159.203.11.169", port=3478, ifname=0x6323e0 <client_ifname> "", local_address=0x7fffffffd990 "", messagenumber=200, i=0)
+    at src/apps/uclient/uclient.c:1076
+1076				    int i) {
+(gdb) 
+Continuing.
+
+Breakpoint 15, create_new_ss () at src/apps/uclient/uclient.c:128
+128		++current_clients_number;
+(gdb) 
+Continuing.
+
+Breakpoint 16, init_app_session (ss=0x645600) at src/apps/uclient/uclient.c:119
+119	  if(ss) {
+(gdb) 
+Continuing.
+
+Breakpoint 15, create_new_ss () at src/apps/uclient/uclient.c:128
+128		++current_clients_number;
+(gdb) 
+Continuing.
+
+Breakpoint 16, init_app_session (ss=0x7ffff7f0e010) at src/apps/uclient/uclient.c:119
+119	  if(ss) {
+(gdb) 
+Continuing.
+
+Breakpoint 32, start_c2c_connection (clnet_remote_port0=3478, remote_address0=0x7fffffffe381 "159.203.11.169", ifname=0x6323e0 <client_ifname> "", local_address=0x7fffffffd990 "", verbose=1, 
+    clnet_info_probe=0x7fffffffca10, clnet_info1=0x645600, chn1=0x7fffffffc9a8, clnet_info1_rtcp=0x0, chn1_rtcp=0x7fffffffc9aa, clnet_info2=0x7ffff7f0e010, chn2=0x7fffffffc9ac, clnet_info2_rtcp=0x0, 
+    chn2_rtcp=0x7fffffffc9ae) at src/apps/uclient/startuclient.c:1160
+1160			uint16_t *chn2_rtcp) {
+(gdb) 
+Continuing.
+
+Breakpoint 1, clnet_connect (clnet_remote_port=3478, remote_address=0x7fffffffe381 "159.203.11.169", ifname=0x6323e0 <client_ifname> "", local_address=0x7fffffffd990 "", verbose=1, 
+    clnet_info=0x7fffffffca10) at src/apps/uclient/startuclient.c:211
+211			app_ur_conn_info *clnet_info) {
+(gdb) 
+Continuing.
+
+Breakpoint 31, socket_connect (clnet_fd=6, remote_addr=0x7fffffffc080, connect_err=0x7fffffffc038) at src/apps/uclient/startuclient.c:196
+196		if (addr_connect(clnet_fd, remote_addr, connect_err) < 0) {
+(gdb) 
+Continuing.
+0: IPv4. Connected from: 192.168.3.176:60818
+0: IPv4. Connected to: 159.203.11.169:3478
+
+Breakpoint 36, clnet_allocate (verbose=1, clnet_info=0x7fffffffca10, relay_addr=0x7fffffffc460, af=0, turn_addr=0x7fffffffc500 "159.203.11.169", turn_port=0x7fffffffc14a)
+    at src/apps/uclient/startuclient.c:351
+351			char *turn_addr, u16bits *turn_port) {
+(gdb) 
+Continuing.
+
+Breakpoint 27, add_origin (message=0x7ffffffdc0a0) at src/apps/uclient/startuclient.c:338
+338		if(message && origin[0]) {
+(gdb) 
+Continuing.
+
+Breakpoint 2, add_integrity (clnet_info=0x7fffffffca10, message=0x7ffffffdc0a0) at src/apps/uclient/uclient.c:1592
+1592	{
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7fffffffca10, message=0x7ffffffdc0a0, data_connection=0, atc=0x0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+2: allocate sent
+
+Breakpoint 28, not_rare_event () at src/apps/uclient/startuclient.c:69
+69		if(dos)
+(gdb) 
+Continuing.
+
+Breakpoint 7, recv_buffer (clnet_info=0x7fffffffca10, message=0x7ffffffec0a0, sync=1, data_connection=0, atc=0x0, request_message=0x7ffffffdc0a0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+3: allocate response received: 
+3: success
+3: IPv4. Received relay addr: 159.203.11.169:55618
+3: clnet_allocate: rtv=0
+
+Breakpoint 30, read_mobility_ticket (clnet_info=0x7fffffffca10, message=0x7ffffffec0a0) at src/apps/uclient/startuclient.c:312
+312		int ret = 0;
+(gdb) 
+Continuing.
+
+Breakpoint 29, rare_event () at src/apps/uclient/startuclient.c:62
+62		if(dos)
+(gdb) 
+Continuing.
+
+Breakpoint 27, add_origin (message=0x7ffffffdc0a0) at src/apps/uclient/startuclient.c:338
+338		if(message && origin[0]) {
+(gdb) 
+Continuing.
+
+Breakpoint 2, add_integrity (clnet_info=0x7fffffffca10, message=0x7ffffffdc0a0) at src/apps/uclient/uclient.c:1592
+1592	{
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7fffffffca10, message=0x7ffffffdc0a0, data_connection=0, atc=0x0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+4: refresh sent
+
+Breakpoint 28, not_rare_event () at src/apps/uclient/startuclient.c:69
+69		if(dos)
+(gdb) 
+Continuing.
+
+Breakpoint 7, recv_buffer (clnet_info=0x7fffffffca10, message=0x7ffffffec0a0, sync=1, data_connection=0, atc=0x0, request_message=0x7ffffffdc0a0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+4: refresh response received: 
+
+Breakpoint 30, read_mobility_ticket (clnet_info=0x7fffffffca10, message=0x7ffffffec0a0) at src/apps/uclient/startuclient.c:312
+312		int ret = 0;
+(gdb) 
+Continuing.
+4: success
+
+Breakpoint 29, rare_event () at src/apps/uclient/startuclient.c:62
+62		if(dos)
+(gdb) 
+Continuing.
+
+Breakpoint 1, clnet_connect (clnet_remote_port=3478, remote_address=0x7fffffffc500 "159.203.11.169", ifname=0x6323e0 <client_ifname> "", local_address=0x7fffffffd990 "", verbose=1, clnet_info=0x645600)
+    at src/apps/uclient/startuclient.c:211
+211			app_ur_conn_info *clnet_info) {
+(gdb) 
+Continuing.
+
+Breakpoint 31, socket_connect (clnet_fd=7, remote_addr=0x7fffffffc080, connect_err=0x7fffffffc038) at src/apps/uclient/startuclient.c:196
+196		if (addr_connect(clnet_fd, remote_addr, connect_err) < 0) {
+(gdb) 
+Continuing.
+5: IPv4. Connected from: 192.168.3.176:60820
+5: IPv4. Connected to: 159.203.11.169:3478
+
+Breakpoint 1, clnet_connect (clnet_remote_port=3478, remote_address=0x7fffffffc500 "159.203.11.169", ifname=0x6323e0 <client_ifname> "", local_address=0x7fffffffd990 "", verbose=1, 
+    clnet_info=0x7ffff7f0e010) at src/apps/uclient/startuclient.c:211
+211			app_ur_conn_info *clnet_info) {
+(gdb) 
+Continuing.
+
+Breakpoint 31, socket_connect (clnet_fd=8, remote_addr=0x7fffffffc080, connect_err=0x7fffffffc038) at src/apps/uclient/startuclient.c:196
+196		if (addr_connect(clnet_fd, remote_addr, connect_err) < 0) {
+(gdb) 
+Continuing.
+6: IPv4. Connected from: 192.168.3.176:60821
+6: IPv4. Connected to: 159.203.11.169:3478
+
+Breakpoint 36, clnet_allocate (verbose=1, clnet_info=0x645600, relay_addr=0x7fffffffc460, af=0, turn_addr=0x0, turn_port=0x0) at src/apps/uclient/startuclient.c:351
+351			char *turn_addr, u16bits *turn_port) {
+(gdb) 
+Continuing.
+
+Breakpoint 27, add_origin (message=0x7ffffffdc0a0) at src/apps/uclient/startuclient.c:338
+338		if(message && origin[0]) {
+(gdb) 
+Continuing.
+
+Breakpoint 2, add_integrity (clnet_info=0x645600, message=0x7ffffffdc0a0) at src/apps/uclient/uclient.c:1592
+1592	{
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x7ffffffdc0a0, data_connection=0, atc=0x0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+7: allocate sent
+
+Breakpoint 28, not_rare_event () at src/apps/uclient/startuclient.c:69
+69		if(dos)
+(gdb) 
+Continuing.
+
+Breakpoint 7, recv_buffer (clnet_info=0x645600, message=0x7ffffffec0a0, sync=1, data_connection=0, atc=0x0, request_message=0x7ffffffdc0a0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+7: allocate response received: 
+7: success
+7: IPv4. Received relay addr: 159.203.11.169:54988
+7: clnet_allocate: rtv=0
+
+Breakpoint 30, read_mobility_ticket (clnet_info=0x645600, message=0x7ffffffec0a0) at src/apps/uclient/startuclient.c:312
+312		int ret = 0;
+(gdb) 
+Continuing.
+
+Breakpoint 29, rare_event () at src/apps/uclient/startuclient.c:62
+62		if(dos)
+(gdb) 
+Continuing.
+
+Breakpoint 27, add_origin (message=0x7ffffffdc0a0) at src/apps/uclient/startuclient.c:338
+338		if(message && origin[0]) {
+(gdb) 
+Continuing.
+
+Breakpoint 2, add_integrity (clnet_info=0x645600, message=0x7ffffffdc0a0) at src/apps/uclient/uclient.c:1592
+1592	{
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x7ffffffdc0a0, data_connection=0, atc=0x0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+10: refresh sent
+
+Breakpoint 28, not_rare_event () at src/apps/uclient/startuclient.c:69
+69		if(dos)
+(gdb) 
+Continuing.
+
+Breakpoint 7, recv_buffer (clnet_info=0x645600, message=0x7ffffffec0a0, sync=1, data_connection=0, atc=0x0, request_message=0x7ffffffdc0a0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+10: refresh response received: 
+
+Breakpoint 30, read_mobility_ticket (clnet_info=0x645600, message=0x7ffffffec0a0) at src/apps/uclient/startuclient.c:312
+312		int ret = 0;
+(gdb) 
+Continuing.
+10: success
+
+Breakpoint 29, rare_event () at src/apps/uclient/startuclient.c:62
+62		if(dos)
+(gdb) 
+Continuing.
+
+Breakpoint 36, clnet_allocate (verbose=1, clnet_info=0x7ffff7f0e010, relay_addr=0x7fffffffc4a0, af=0, turn_addr=0x0, turn_port=0x0) at src/apps/uclient/startuclient.c:351
+351			char *turn_addr, u16bits *turn_port) {
+(gdb) 
+Continuing.
+
+Breakpoint 27, add_origin (message=0x7ffffffdc0a0) at src/apps/uclient/startuclient.c:338
+338		if(message && origin[0]) {
+(gdb) 
+Continuing.
+
+Breakpoint 2, add_integrity (clnet_info=0x7ffff7f0e010, message=0x7ffffffdc0a0) at src/apps/uclient/uclient.c:1592
+1592	{
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffffffdc0a0, data_connection=0, atc=0x0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+11: allocate sent
+
+Breakpoint 28, not_rare_event () at src/apps/uclient/startuclient.c:69
+69		if(dos)
+(gdb) 
+Continuing.
+
+Breakpoint 7, recv_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffffffec0a0, sync=1, data_connection=0, atc=0x0, request_message=0x7ffffffdc0a0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+11: allocate response received: 
+11: success
+11: IPv4. Received relay addr: 159.203.11.169:63453
+11: clnet_allocate: rtv=0
+
+Breakpoint 30, read_mobility_ticket (clnet_info=0x7ffff7f0e010, message=0x7ffffffec0a0) at src/apps/uclient/startuclient.c:312
+312		int ret = 0;
+(gdb) 
+Continuing.
+
+Breakpoint 29, rare_event () at src/apps/uclient/startuclient.c:62
+62		if(dos)
+(gdb) 
+Continuing.
+
+Breakpoint 27, add_origin (message=0x7ffffffdc0a0) at src/apps/uclient/startuclient.c:338
+338		if(message && origin[0]) {
+(gdb) 
+Continuing.
+
+Breakpoint 2, add_integrity (clnet_info=0x7ffff7f0e010, message=0x7ffffffdc0a0) at src/apps/uclient/uclient.c:1592
+1592	{
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffffffdc0a0, data_connection=0, atc=0x0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+12: refresh sent
+
+Breakpoint 28, not_rare_event () at src/apps/uclient/startuclient.c:69
+69		if(dos)
+(gdb) 
+Continuing.
+
+Breakpoint 7, recv_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffffffec0a0, sync=1, data_connection=0, atc=0x0, request_message=0x7ffffffdc0a0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+13: refresh response received: 
+
+Breakpoint 30, read_mobility_ticket (clnet_info=0x7ffff7f0e010, message=0x7ffffffec0a0) at src/apps/uclient/startuclient.c:312
+312		int ret = 0;
+(gdb) 
+Continuing.
+13: success
+
+Breakpoint 29, rare_event () at src/apps/uclient/startuclient.c:62
+62		if(dos)
+(gdb) 
+Continuing.
+
+Breakpoint 41, turn_create_permission (verbose=1, clnet_info=0x645600, peer_addr=0x7fffffffc4a0, addrnum=1) at src/apps/uclient/startuclient.c:840
+840	{
+(gdb) 
+Continuing.
+
+Breakpoint 27, add_origin (message=0x7ffffffdc0b0) at src/apps/uclient/startuclient.c:338
+338		if(message && origin[0]) {
+(gdb) 
+Continuing.
+
+Breakpoint 2, add_integrity (clnet_info=0x645600, message=0x7ffffffdc0b0) at src/apps/uclient/uclient.c:1592
+1592	{
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x7ffffffdc0b0, data_connection=0, atc=0x0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+14: create perm sent: 159.203.11.169:63453
+
+Breakpoint 28, not_rare_event () at src/apps/uclient/startuclient.c:69
+69		if(dos)
+(gdb) 
+Continuing.
+
+Breakpoint 7, recv_buffer (clnet_info=0x645600, message=0x7ffffffec0b0, sync=1, data_connection=0, atc=0x0, request_message=0x7ffffffdc0b0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+15: cp response received: 
+15: success
+
+Breakpoint 29, rare_event () at src/apps/uclient/startuclient.c:62
+62		if(dos)
+(gdb) 
+Continuing.
+
+Breakpoint 29, rare_event () at src/apps/uclient/startuclient.c:62
+62		if(dos)
+(gdb) 
+Continuing.
+
+Breakpoint 41, turn_create_permission (verbose=1, clnet_info=0x7ffff7f0e010, peer_addr=0x7fffffffc460, addrnum=1) at src/apps/uclient/startuclient.c:840
+840	{
+(gdb) 
+Continuing.
+
+Breakpoint 27, add_origin (message=0x7ffffffdc0b0) at src/apps/uclient/startuclient.c:338
+338		if(message && origin[0]) {
+(gdb) 
+Continuing.
+
+Breakpoint 2, add_integrity (clnet_info=0x7ffff7f0e010, message=0x7ffffffdc0b0) at src/apps/uclient/uclient.c:1592
+1592	{
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffffffdc0b0, data_connection=0, atc=0x0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+17: create perm sent: 159.203.11.169:54988
+
+Breakpoint 28, not_rare_event () at src/apps/uclient/startuclient.c:69
+69		if(dos)
+(gdb) 
+Continuing.
+
+Breakpoint 7, recv_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffffffec0b0, sync=1, data_connection=0, atc=0x0, request_message=0x7ffffffdc0b0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+17: cp response received: 
+17: success
+
+Breakpoint 29, rare_event () at src/apps/uclient/startuclient.c:62
+62		if(dos)
+(gdb) 
+Continuing.
+
+Breakpoint 29, rare_event () at src/apps/uclient/startuclient.c:62
+62		if(dos)
+(gdb) 
+Continuing.
+
+Breakpoint 35, turn_tcp_connect (verbose=1, clnet_info=0x645600, peer_addr=0x7ffff7f0e1ec) at src/apps/uclient/startuclient.c:1384
+1384	int turn_tcp_connect(int verbose, app_ur_conn_info *clnet_info, ioa_addr *peer_addr) {
+(gdb) 
+Continuing.
+
+Breakpoint 27, add_origin (message=0x7ffffffed1b0) at src/apps/uclient/startuclient.c:338
+338		if(message && origin[0]) {
+(gdb) 
+Continuing.
+
+Breakpoint 2, add_integrity (clnet_info=0x645600, message=0x7ffffffed1b0) at src/apps/uclient/uclient.c:1592
+1592	{
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x7ffffffed1b0, data_connection=0, atc=0x0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+18: tcp connect sent
+
+Breakpoint 19, run_events (short_burst=1) at src/apps/uclient/uclient.c:970
+970		if(!short_burst) {
+(gdb) 
+Continuing.
+
+Breakpoint 4, client_input_handler (fd=7, what=2, arg=0x645600) at src/apps/uclient/uclient.c:930
+930	  if(!(what&EV_READ)||!arg) return;
+(gdb) 
+Continuing.
+
+Breakpoint 11, client_read (elem=0x645600, is_tcp_data=0, atc=0x0) at src/apps/uclient/uclient.c:638
+638	static int client_read(app_ur_session *elem, int is_tcp_data, app_tcp_conn_info *atc) {
+(gdb) 
+Continuing.
+
+Breakpoint 7, recv_buffer (clnet_info=0x645600, message=0x645dc0, sync=0, data_connection=0, atc=0x0, request_message=0x0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+
+Breakpoint 34, tcp_data_connect (elem=0x645600, cid=30949413) at src/apps/uclient/startuclient.c:1521
+1521		int connect_cycle = 0;
+(gdb) 
+Continuing.
+
+Breakpoint 42, turn_tcp_connection_bind (verbose=1, clnet_info=0x645600, atc=0x6664b0, errorOK=0) at src/apps/uclient/startuclient.c:1421
+1421	static int turn_tcp_connection_bind(int verbose, app_ur_conn_info *clnet_info, app_tcp_conn_info *atc, int errorOK) {
+(gdb) 
+Continuing.
+
+Breakpoint 27, add_origin (message=0x7ffffffdced0) at src/apps/uclient/startuclient.c:338
+338		if(message && origin[0]) {
+(gdb) 
+Continuing.
+
+Breakpoint 2, add_integrity (clnet_info=0x645600, message=0x7ffffffdced0) at src/apps/uclient/uclient.c:1592
+1592	{
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x7ffffffdced0, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+20: connection bind sent
+
+Breakpoint 28, not_rare_event () at src/apps/uclient/startuclient.c:69
+69		if(dos)
+(gdb) 
+Continuing.
+
+Breakpoint 7, recv_buffer (clnet_info=0x645600, message=0x7ffffffeced0, sync=1, data_connection=1, atc=0x6664b0, request_message=0x7ffffffdced0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+20: connect bind response received: 
+20: success
+20: IPv4. TCP data network connected to: 159.203.11.169:3478
+
+Breakpoint 11, client_read (elem=0x645600, is_tcp_data=0, atc=0x0) at src/apps/uclient/uclient.c:638
+638	static int client_read(app_ur_session *elem, int is_tcp_data, app_tcp_conn_info *atc) {
+(gdb) 
+Continuing.
+
+Breakpoint 7, recv_buffer (clnet_info=0x645600, message=0x645dc0, sync=0, data_connection=0, atc=0x0, request_message=0x0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+
+Breakpoint 4, client_input_handler (fd=8, what=2, arg=0x7ffff7f0e010) at src/apps/uclient/uclient.c:930
+930	  if(!(what&EV_READ)||!arg) return;
+(gdb) 
+Continuing.
+
+Breakpoint 11, client_read (elem=0x7ffff7f0e010, is_tcp_data=0, atc=0x0) at src/apps/uclient/uclient.c:638
+638	static int client_read(app_ur_session *elem, int is_tcp_data, app_tcp_conn_info *atc) {
+(gdb) 
+Continuing.
+
+Breakpoint 7, recv_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f0e7d0, sync=0, data_connection=0, atc=0x0, request_message=0x0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+
+Breakpoint 34, tcp_data_connect (elem=0x7ffff7f0e010, cid=2269565) at src/apps/uclient/startuclient.c:1521
+1521		int connect_cycle = 0;
+(gdb) 
+Continuing.
+
+Breakpoint 42, turn_tcp_connection_bind (verbose=1, clnet_info=0x7ffff7f0e010, atc=0x6665d0, errorOK=0) at src/apps/uclient/startuclient.c:1421
+1421	static int turn_tcp_connection_bind(int verbose, app_ur_conn_info *clnet_info, app_tcp_conn_info *atc, int errorOK) {
+(gdb) 
+Continuing.
+
+Breakpoint 27, add_origin (message=0x7ffffffdced0) at src/apps/uclient/startuclient.c:338
+338		if(message && origin[0]) {
+(gdb) 
+Continuing.
+
+Breakpoint 2, add_integrity (clnet_info=0x7ffff7f0e010, message=0x7ffffffdced0) at src/apps/uclient/uclient.c:1592
+1592	{
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffffffdced0, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+22: connection bind sent
+
+Breakpoint 28, not_rare_event () at src/apps/uclient/startuclient.c:69
+69		if(dos)
+(gdb) 
+Continuing.
+
+Breakpoint 7, recv_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffffffeced0, sync=1, data_connection=1, atc=0x6665d0, request_message=0x7ffffffdced0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+23: connect bind response received: 
+23: success
+23: IPv4. TCP data network connected to: 159.203.11.169:3478
+
+Breakpoint 11, client_read (elem=0x7ffff7f0e010, is_tcp_data=0, atc=0x0) at src/apps/uclient/uclient.c:638
+638	static int client_read(app_ur_session *elem, int is_tcp_data, app_tcp_conn_info *atc) {
+(gdb) 
+Continuing.
+
+Breakpoint 7, recv_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f0e7d0, sync=0, data_connection=0, atc=0x0, request_message=0x0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+
+Breakpoint 19, run_events (short_burst=1) at src/apps/uclient/uclient.c:970
+970		if(!short_burst) {
+(gdb) 
+Continuing.
+24: Total connect time is 30
+24: 2 connections are completed
+
+Breakpoint 19, run_events (short_burst=1) at src/apps/uclient/uclient.c:970
+970		if(!short_burst) {
+(gdb) 
+Continuing.
+
+Breakpoint 17, refresh_channel (elem=0x645600, method=0, lt=600) at src/apps/uclient/uclient.c:1215
+1215	{
+(gdb) 
+Continuing.
+
+Breakpoint 27, add_origin (message=0x7ffffffed050) at src/apps/uclient/startuclient.c:338
+338		if(message && origin[0]) {
+(gdb) 
+Continuing.
+
+Breakpoint 2, add_integrity (clnet_info=0x645600, message=0x7ffffffed050) at src/apps/uclient/uclient.c:1592
+1592	{
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x7ffffffed050, data_connection=0, atc=0x0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 27, add_origin (message=0x7ffffffed050) at src/apps/uclient/startuclient.c:338
+338		if(message && origin[0]) {
+(gdb) 
+Continuing.
+
+Breakpoint 2, add_integrity (clnet_info=0x645600, message=0x7ffffffed050) at src/apps/uclient/uclient.c:1592
+1592	{
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x7ffffffed050, data_connection=0, atc=0x0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 17, refresh_channel (elem=0x7ffff7f0e010, method=0, lt=600) at src/apps/uclient/uclient.c:1215
+1215	{
+(gdb) 
+Continuing.
+
+Breakpoint 27, add_origin (message=0x7ffffffed050) at src/apps/uclient/startuclient.c:338
+338		if(message && origin[0]) {
+(gdb) 
+Continuing.
+
+Breakpoint 2, add_integrity (clnet_info=0x7ffff7f0e010, message=0x7ffffffed050) at src/apps/uclient/uclient.c:1592
+1592	{
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffffffed050, data_connection=0, atc=0x0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 27, add_origin (message=0x7ffffffed050) at src/apps/uclient/startuclient.c:338
+338		if(message && origin[0]) {
+(gdb) 
+Continuing.
+
+Breakpoint 2, add_integrity (clnet_info=0x7ffff7f0e010, message=0x7ffffffed050) at src/apps/uclient/uclient.c:1592
+1592	{
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffffffed050, data_connection=0, atc=0x0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 4, client_input_handler (fd=7, what=2, arg=0x645600) at src/apps/uclient/uclient.c:930
+930	  if(!(what&EV_READ)||!arg) return;
+(gdb) 
+Continuing.
+
+Breakpoint 11, client_read (elem=0x645600, is_tcp_data=0, atc=0x0) at src/apps/uclient/uclient.c:638
+638	static int client_read(app_ur_session *elem, int is_tcp_data, app_tcp_conn_info *atc) {
+(gdb) 
+Continuing.
+
+Breakpoint 7, recv_buffer (clnet_info=0x645600, message=0x645dc0, sync=0, data_connection=0, atc=0x0, request_message=0x0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+
+Breakpoint 11, client_read (elem=0x645600, is_tcp_data=0, atc=0x0) at src/apps/uclient/uclient.c:638
+638	static int client_read(app_ur_session *elem, int is_tcp_data, app_tcp_conn_info *atc) {
+(gdb) 
+Continuing.
+
+Breakpoint 7, recv_buffer (clnet_info=0x645600, message=0x645dc0, sync=0, data_connection=0, atc=0x0, request_message=0x0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+
+Breakpoint 11, client_read (elem=0x645600, is_tcp_data=0, atc=0x0) at src/apps/uclient/uclient.c:638
+638	static int client_read(app_ur_session *elem, int is_tcp_data, app_tcp_conn_info *atc) {
+(gdb) 
+Continuing.
+
+Breakpoint 7, recv_buffer (clnet_info=0x645600, message=0x645dc0, sync=0, data_connection=0, atc=0x0, request_message=0x0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+
+Breakpoint 4, client_input_handler (fd=8, what=2, arg=0x7ffff7f0e010) at src/apps/uclient/uclient.c:930
+930	  if(!(what&EV_READ)||!arg) return;
+(gdb) 
+Continuing.
+
+Breakpoint 11, client_read (elem=0x7ffff7f0e010, is_tcp_data=0, atc=0x0) at src/apps/uclient/uclient.c:638
+638	static int client_read(app_ur_session *elem, int is_tcp_data, app_tcp_conn_info *atc) {
+(gdb) 
+Continuing.
+
+Breakpoint 7, recv_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f0e7d0, sync=0, data_connection=0, atc=0x0, request_message=0x0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+
+Breakpoint 11, client_read (elem=0x7ffff7f0e010, is_tcp_data=0, atc=0x0) at src/apps/uclient/uclient.c:638
+638	static int client_read(app_ur_session *elem, int is_tcp_data, app_tcp_conn_info *atc) {
+(gdb) 
+Continuing.
+
+Breakpoint 7, recv_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f0e7d0, sync=0, data_connection=0, atc=0x0, request_message=0x0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+
+Breakpoint 11, client_read (elem=0x7ffff7f0e010, is_tcp_data=0, atc=0x0) at src/apps/uclient/uclient.c:638
+638	static int client_read(app_ur_session *elem, int is_tcp_data, app_tcp_conn_info *atc) {
+(gdb) 
+Continuing.
+
+Breakpoint 7, recv_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f0e7d0, sync=0, data_connection=0, atc=0x0, request_message=0x0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x645600) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x645600, message=0x655db8, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+
+Breakpoint 8, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f1e7c8, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+
+Breakpoint 14, client_write (elem=0x7ffff7f0e010) at src/apps/uclient/uclient.c:853
+853	  if(!elem) return -1;
+(gdb) 
+Continuing.
+

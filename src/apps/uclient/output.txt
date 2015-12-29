@@ -1,0 +1,69 @@
+Step 1
+remote_address = 159.203.11.169, port = 3478, ifname = , local_address = , mclient = 1
+0: IPv4. Connected from: 10.0.0.37:55977
+0: IPv4. Connected to: 159.203.11.169:3478
+0: allocate sent
+0: allocate response received: 
+0: success
+0: IPv4. Received relay addr: 159.203.11.169:60132
+0: clnet_allocate: rtv=0
+0: refresh sent
+0: refresh response received: 
+0: success
+0: IPv4. Connected from: 10.0.0.37:55978
+0: IPv4. Connected to: 159.203.11.169:3478
+0: IPv4. Connected from: 10.0.0.37:55979
+0: IPv4. Connected to: 159.203.11.169:3478
+0: allocate sent
+0: allocate response received: 
+0: success
+0: IPv4. Received relay addr: 159.203.11.169:50461
+0: clnet_allocate: rtv=0
+0: refresh sent
+0: refresh response received: 
+0: success
+0: allocate sent
+0: allocate response received: 
+0: success
+0: IPv4. Received relay addr: 159.203.11.169:64364
+0: clnet_allocate: rtv=0
+0: refresh sent
+0: refresh response received: 
+0: success
+0: create perm sent: 159.203.11.169:64364
+0: cp response received: 
+0: success
+0: create perm sent: 159.203.11.169:50461
+0: cp response received: 
+0: success
+
+Step 2
+0: tcp connect sent
+0: connection bind sent
+0: connect bind response received: 
+0: success
+0: IPv4. TCP data network connected to: 159.203.11.169:3478
+0: connection bind sent
+0: connect bind response received: 
+0: success
+0: IPv4. TCP data network connected to: 159.203.11.169:3478
+0: Total connect time is 0
+0: 2 connections are completed
+1: start_mclient: msz=2, tot_send_msgs=0, tot_recv_msgs=0, tot_send_bytes ~ 0, tot_recv_bytes ~ 0
+2: start_mclient: msz=2, tot_send_msgs=0, tot_recv_msgs=0, tot_send_bytes ~ 0, tot_recv_bytes ~ 0
+3: start_mclient: msz=2, tot_send_msgs=0, tot_recv_msgs=0, tot_send_bytes ~ 0, tot_recv_bytes ~ 0
+4: start_mclient: msz=2, tot_send_msgs=0, tot_recv_msgs=0, tot_send_bytes ~ 0, tot_recv_bytes ~ 0
+5: start_mclient: msz=2, tot_send_msgs=0, tot_recv_msgs=0, tot_send_bytes ~ 0, tot_recv_bytes ~ 0
+6: start_mclient: msz=2, tot_send_msgs=71, tot_recv_msgs=65, tot_send_bytes ~ 12070, tot_recv_bytes ~ 11050
+7: start_mclient: msz=2, tot_send_msgs=171, tot_recv_msgs=165, tot_send_bytes ~ 29070, tot_recv_bytes ~ 28050
+8: start_mclient: msz=2, tot_send_msgs=272, tot_recv_msgs=267, tot_send_bytes ~ 46240, tot_recv_bytes ~ 45390
+9: start_mclient: msz=2, tot_send_msgs=373, tot_recv_msgs=368, tot_send_bytes ~ 63410, tot_recv_bytes ~ 62560
+9: done, connection 0x6455f0 closed.
+9: done, connection 0x7ffff7f0f010 closed.
+9: start_mclient: tot_send_msgs=400, tot_recv_msgs=400
+9: start_mclient: tot_send_bytes ~ 68000, tot_recv_bytes ~ 68000
+9: Total transmit time is 9
+9: Total lost packets 0 (0.000000%), total send dropped 0 (0.000000%)
+9: Average round trip delay 60.110000 ms; min = 28 ms, max = 97 ms
+9: Average jitter 25.887500 ms; min = 6 ms, max = 52 ms
+

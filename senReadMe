@@ -1,0 +1,328 @@
+turnutils_uclient -T -v -n 200 -m 1 -l 100 -y -g $@ 159.203.11.169
+rbreak mainuclient.c:.
+
+Starting program: /usr/local/bin/turnutils_uclient -T -v -n 1000 -m 2 -l 170 -y -g $@ 159.203.11.169
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 8, start_mclient (remote_address=0x7fffffffe381 "159.203.11.169", port=3478, ifname=0x6323e0 <client_ifname> "", local_address=0x7fffffffd990 "", messagenumber=1000, mclient=2)
+    at src/apps/uclient/uclient.c:1366
+1366		if (mclient < 1)
+(gdb) c
+Continuing.
+
+Breakpoint 9, __turn_getMSTime () at src/apps/uclient/uclient.c:98
+98	  struct timespec tp={0,0};
+(gdb) 
+Continuing.
+
+Breakpoint 19, start_c2c (remote_address=0x7fffffffe381 "159.203.11.169", port=3478, ifname=0x6323e0 <client_ifname> "", local_address=0x7fffffffd990 "", messagenumber=1000, i=0)
+    at src/apps/uclient/uclient.c:1076
+1076				    int i) {
+(gdb) 
+Continuing.
+
+Breakpoint 14, create_new_ss () at src/apps/uclient/uclient.c:128
+128		++current_clients_number;
+(gdb) 
+Continuing.
+
+Breakpoint 15, init_app_session (ss=0x645600) at src/apps/uclient/uclient.c:119
+119	  if(ss) {
+(gdb) 
+Continuing.
+
+Breakpoint 14, create_new_ss () at src/apps/uclient/uclient.c:128
+128		++current_clients_number;
+(gdb) 
+Continuing.
+
+Breakpoint 15, init_app_session (ss=0x7ffff7f0e010) at src/apps/uclient/uclient.c:119
+119	  if(ss) {
+(gdb) 
+Continuing.
+0: IPv4. Connected from: 192.168.3.176:60392
+0: IPv4. Connected to: 159.203.11.169:3478
+
+Breakpoint 1, add_integrity (clnet_info=0x7fffffffca10, message=0x7ffffffdc0a0) at src/apps/uclient/uclient.c:1592
+1592	{
+(gdb) 
+Continuing.
+
+Breakpoint 7, send_buffer (clnet_info=0x7fffffffca10, message=0x7ffffffdc0a0, data_connection=0, atc=0x0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+2: allocate sent
+
+Breakpoint 6, recv_buffer (clnet_info=0x7fffffffca10, message=0x7ffffffec0a0, sync=1, data_connection=0, atc=0x0, request_message=0x7ffffffdc0a0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+4: allocate response received: 
+4: success
+4: IPv4. Received relay addr: 159.203.11.169:64913
+4: clnet_allocate: rtv=0
+
+Breakpoint 1, add_integrity (clnet_info=0x7fffffffca10, message=0x7ffffffdc0a0) at src/apps/uclient/uclient.c:1592
+1592	{
+(gdb) 
+Continuing.
+
+Breakpoint 7, send_buffer (clnet_info=0x7fffffffca10, message=0x7ffffffdc0a0, data_connection=0, atc=0x0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+8: refresh sent
+
+Breakpoint 6, recv_buffer (clnet_info=0x7fffffffca10, message=0x7ffffffec0a0, sync=1, data_connection=0, atc=0x0, request_message=0x7ffffffdc0a0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+10: refresh response received: 
+10: success
+10: IPv4. Connected from: 192.168.3.176:60395
+10: IPv4. Connected to: 159.203.11.169:3478
+10: IPv4. Connected from: 192.168.3.176:60396
+10: IPv4. Connected to: 159.203.11.169:3478
+
+Breakpoint 1, add_integrity (clnet_info=0x645600, message=0x7ffffffdc0a0) at src/apps/uclient/uclient.c:1592
+1592	{
+(gdb) 
+Continuing.
+
+Breakpoint 7, send_buffer (clnet_info=0x645600, message=0x7ffffffdc0a0, data_connection=0, atc=0x0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+16: allocate sent
+
+Breakpoint 6, recv_buffer (clnet_info=0x645600, message=0x7ffffffec0a0, sync=1, data_connection=0, atc=0x0, request_message=0x7ffffffdc0a0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+17: allocate response received: 
+17: success
+17: IPv4. Received relay addr: 159.203.11.169:63910
+17: clnet_allocate: rtv=0
+
+Breakpoint 1, add_integrity (clnet_info=0x645600, message=0x7ffffffdc0a0) at src/apps/uclient/uclient.c:1592
+1592	{
+(gdb) 
+Continuing.
+
+Breakpoint 7, send_buffer (clnet_info=0x645600, message=0x7ffffffdc0a0, data_connection=0, atc=0x0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+22: refresh sent
+
+Breakpoint 6, recv_buffer (clnet_info=0x645600, message=0x7ffffffec0a0, sync=1, data_connection=0, atc=0x0, request_message=0x7ffffffdc0a0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+24: refresh response received: 
+24: success
+
+Breakpoint 1, add_integrity (clnet_info=0x7ffff7f0e010, message=0x7ffffffdc0a0) at src/apps/uclient/uclient.c:1592
+1592	{
+(gdb) 
+Continuing.
+
+Breakpoint 7, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffffffdc0a0, data_connection=0, atc=0x0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+25: allocate sent
+
+Breakpoint 6, recv_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffffffec0a0, sync=1, data_connection=0, atc=0x0, request_message=0x7ffffffdc0a0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+25: allocate response received: 
+25: success
+25: IPv4. Received relay addr: 159.203.11.169:49247
+25: clnet_allocate: rtv=0
+
+Breakpoint 1, add_integrity (clnet_info=0x7ffff7f0e010, message=0x7ffffffdc0a0) at src/apps/uclient/uclient.c:1592
+1592	{
+(gdb) 
+Continuing.
+
+Breakpoint 7, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffffffdc0a0, data_connection=0, atc=0x0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+27: refresh sent
+
+Breakpoint 6, recv_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffffffec0a0, sync=1, data_connection=0, atc=0x0, request_message=0x7ffffffdc0a0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+27: refresh response received: 
+27: success
+
+Breakpoint 1, add_integrity (clnet_info=0x645600, message=0x7ffffffdc0b0) at src/apps/uclient/uclient.c:1592
+1592	{
+(gdb) 
+Continuing.
+
+Breakpoint 7, send_buffer (clnet_info=0x645600, message=0x7ffffffdc0b0, data_connection=0, atc=0x0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+28: create perm sent: 159.203.11.169:49247
+
+Breakpoint 6, recv_buffer (clnet_info=0x645600, message=0x7ffffffec0b0, sync=1, data_connection=0, atc=0x0, request_message=0x7ffffffdc0b0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+28: cp response received: 
+28: success
+
+Breakpoint 1, add_integrity (clnet_info=0x7ffff7f0e010, message=0x7ffffffdc0b0) at src/apps/uclient/uclient.c:1592
+1592	{
+(gdb) 
+Continuing.
+
+Breakpoint 7, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffffffdc0b0, data_connection=0, atc=0x0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+35: create perm sent: 159.203.11.169:63910
+
+Breakpoint 6, recv_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffffffec0b0, sync=1, data_connection=0, atc=0x0, request_message=0x7ffffffdc0b0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+35: cp response received: 
+35: success
+
+Breakpoint 9, __turn_getMSTime () at src/apps/uclient/uclient.c:98
+98	  struct timespec tp={0,0};
+(gdb) 
+Continuing.
+
+Breakpoint 1, add_integrity (clnet_info=0x645600, message=0x7ffffffed1b0) at src/apps/uclient/uclient.c:1592
+1592	{
+(gdb) 
+Continuing.
+
+Breakpoint 7, send_buffer (clnet_info=0x645600, message=0x7ffffffed1b0, data_connection=0, atc=0x0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+38: tcp connect sent
+
+Breakpoint 18, run_events (short_burst=1) at src/apps/uclient/uclient.c:970
+970		if(!short_burst) {
+(gdb) 
+Continuing.
+
+Breakpoint 3, client_input_handler (fd=7, what=2, arg=0x645600) at src/apps/uclient/uclient.c:930
+930	  if(!(what&EV_READ)||!arg) return;
+(gdb) 
+Continuing.
+
+Breakpoint 10, client_read (elem=0x645600, is_tcp_data=0, atc=0x0) at src/apps/uclient/uclient.c:638
+638	static int client_read(app_ur_session *elem, int is_tcp_data, app_tcp_conn_info *atc) {
+(gdb) 
+Continuing.
+
+Breakpoint 6, recv_buffer (clnet_info=0x645600, message=0x645dc0, sync=0, data_connection=0, atc=0x0, request_message=0x0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+
+Breakpoint 1, add_integrity (clnet_info=0x645600, message=0x7ffffffdced0) at src/apps/uclient/uclient.c:1592
+1592	{
+(gdb) 
+Continuing.
+
+Breakpoint 7, send_buffer (clnet_info=0x645600, message=0x7ffffffdced0, data_connection=1, atc=0x6664b0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+40: connection bind sent
+
+Breakpoint 6, recv_buffer (clnet_info=0x645600, message=0x7ffffffeced0, sync=1, data_connection=1, atc=0x6664b0, request_message=0x7ffffffdced0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+40: connect bind response received: 
+40: success
+40: IPv4. TCP data network connected to: 159.203.11.169:3478
+
+Breakpoint 10, client_read (elem=0x645600, is_tcp_data=0, atc=0x0) at src/apps/uclient/uclient.c:638
+638	static int client_read(app_ur_session *elem, int is_tcp_data, app_tcp_conn_info *atc) {
+(gdb) 
+Continuing.
+
+Breakpoint 6, recv_buffer (clnet_info=0x645600, message=0x645dc0, sync=0, data_connection=0, atc=0x0, request_message=0x0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+
+Breakpoint 3, client_input_handler (fd=8, what=2, arg=0x7ffff7f0e010) at src/apps/uclient/uclient.c:930
+930	  if(!(what&EV_READ)||!arg) return;
+(gdb) 
+Continuing.
+
+Breakpoint 10, client_read (elem=0x7ffff7f0e010, is_tcp_data=0, atc=0x0) at src/apps/uclient/uclient.c:638
+638	static int client_read(app_ur_session *elem, int is_tcp_data, app_tcp_conn_info *atc) {
+(gdb) 
+Continuing.
+
+Breakpoint 6, recv_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f0e7d0, sync=0, data_connection=0, atc=0x0, request_message=0x0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+
+Breakpoint 1, add_integrity (clnet_info=0x7ffff7f0e010, message=0x7ffffffdced0) at src/apps/uclient/uclient.c:1592
+1592	{
+(gdb) 
+Continuing.
+
+Breakpoint 7, send_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffffffdced0, data_connection=1, atc=0x6665d0) at src/apps/uclient/uclient.c:193
+193	{
+(gdb) 
+Continuing.
+42: connection bind sent
+
+Breakpoint 6, recv_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffffffeced0, sync=1, data_connection=1, atc=0x6665d0, request_message=0x7ffffffdced0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+42: connect bind response received: 
+42: success
+42: IPv4. TCP data network connected to: 159.203.11.169:3478
+
+Breakpoint 10, client_read (elem=0x7ffff7f0e010, is_tcp_data=0, atc=0x0) at src/apps/uclient/uclient.c:638
+638	static int client_read(app_ur_session *elem, int is_tcp_data, app_tcp_conn_info *atc) {
+(gdb) 
+Continuing.
+
+Breakpoint 6, recv_buffer (clnet_info=0x7ffff7f0e010, message=0x7ffff7f0e7d0, sync=0, data_connection=0, atc=0x0, request_message=0x0) at src/apps/uclient/uclient.c:358
+358	int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, int data_connection, app_tcp_conn_info *atc, stun_buffer* request_message) {
+(gdb) 
+Continuing.
+
+Breakpoint 22, timer_handler (fd=-1, event=1, arg=0x0) at src/apps/uclient/uclient.c:1338
+1338		__turn_getMSTime();
+(gdb) 
+Continuing.
+
+Breakpoint 9, __turn_getMSTime () at src/apps/uclient/uclient.c:98
+98	  struct timespec tp={0,0};
+(gdb) 
+Continuing.
+
+Breakpoint 22, timer_handler (fd=-1, event=1, arg=0x0) at src/apps/uclient/uclient.c:1338
+1338		__turn_getMSTime();
+(gdb) 
+Continuing.
+
+Breakpoint 9, __turn_getMSTime () at src/apps/uclient/uclient.c:98
+98	  struct timespec tp={0,0};
+(gdb) 
+
