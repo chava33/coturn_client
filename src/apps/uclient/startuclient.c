@@ -381,7 +381,7 @@ void tcp_data_connect(app_ur_session *elem, u32bits cid)
         return;
 	}
 
-    socket_set_nonblocking(clnet_fd);
+    //socket_set_nonblocking(clnet_fd);
     addr_debug_print(clnet_verbose, &(elem->pinfo.remote_addr), "TCP data network connected to");
 }
 
