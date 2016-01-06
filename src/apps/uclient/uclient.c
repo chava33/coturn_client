@@ -190,7 +190,7 @@ int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, in
         if ((rc < 0) && (errno == EAGAIN) && sync) {
             errno = EINTR;
         }
-       // printf("\nReceived message %s\n",message->buf);    
+       // printf("\nReceived message %s\n",message->buf);
 } while (rc < 0 && (errno == EINTR));
 
     if (rc <= 0)
@@ -240,7 +240,7 @@ int recv_buffer(app_ur_conn_info *clnet_info, stun_buffer* message, int sync, in
 static int client_read(app_ur_session *elem, int is_tcp_data, app_tcp_conn_info *atc)
 {
 
-	elem->ctime = current_time;
+
 	app_ur_conn_info *clnet_info = &(elem->pinfo);
 	int rc = 0;
 
@@ -317,7 +317,7 @@ static int client_shutdown(app_ur_session *elem)
   elem->state=UR_STATE_DONE;
   elem->ctime=current_time;
   uc_delete_session_elem_data(elem);
-  
+
   TURN_LOG_FUNC(TURN_LOG_LEVEL_INFO,"done, connection 0x%lx closed.\n",(long)elem);
   return 0;
 }
@@ -331,7 +331,7 @@ static int client_write(app_ur_session *elem)
   //mi->msgnum = elem->wmsgnum;
   //mi->mstime = current_mstime;
   app_tcp_conn_info *atc=NULL;
-  
+
   memcpy(elem->out_buffer.buf, buffer_to_send, clmessage_length);
   elem->out_buffer.len = clmessage_length;
   //elem->out_buffer.len = snprintf((char *)elem->out_buffer.buf, sizeof(elem->out_buffer.buf), "hello") + 1;
@@ -374,6 +374,8 @@ static void client_read_input(app_ur_session* elem)
                 break;
             }
         }
+
+
         rc = client_read(elem, is_tcp_data, atc);
         //printf("client_read called with is_tcp_data = %d, rc = %d\n", is_tcp_data, rc);
 
@@ -391,7 +393,7 @@ static void client_read_input(app_ur_session* elem)
 
 static void set_buffer_to_send(int len, int idx)
 {
-   
+
     char buf[400];
 	printf("enter message to send\n");
 	getchar();
@@ -401,16 +403,21 @@ static void set_buffer_to_send(int len, int idx)
 //		memcpy(buffer_to_send,buf,sizeof(buf)+1);
 		memcpy(buffer_to_send,"GET / HTTP/1.1\r\n\r\n",sizeof("GET / HTTP/1.1\r\n\r\n"));
 	}
-	
-	
-	
-	
+/*
+ "GET / HTTP/1.1\r\n"
+ "Host: localhost\r\n"
+ "Connection: Keep-alive\r\n"
+ "Cache-Control: max-age=0\r\n"
+ */
+
+
+
 	int n;
 	//memset(buffer_to_send, 0, 16);
-	
+
     //n = snprintf(&buffer_to_send, sizeof(buf), "%s %d",buf, idx);
 	//printf("n %d\n",n);
-	
+
     /*
         buffer_to_send[16] = 'h';
         buffer_to_send[17] = 'e';
@@ -436,7 +443,7 @@ static int get_peer_relay(ioa_addr *relay)
     relay->s4.sin_family = AF_INET;
     relay->s4.sin_port = htons(port);
     inet_pton(AF_INET, addrstr, &relay->s4.sin_addr);
-    
+
     return 0;
 }
 
@@ -563,7 +570,7 @@ int start_client(const char *rem_addr, int port, const unsigned char *ifname, co
         return -1;
     }
 
-    if (get_peer_relay(&peer_relay) < 0) { 
+    if (get_peer_relay(&peer_relay) < 0) {
         return -1;
     }
 
@@ -582,32 +589,45 @@ int start_client(const char *rem_addr, int port, const unsigned char *ifname, co
     if (turn_tcp_connect(clnet_info, &peer_relay) < 0) {
         return -1;
     }
-
+    printf("------1\n");
     printf("client_read_input: enter when both clients are ready to establish tcp connection\n");
-    getchar();
+    //getchar();
 	//client_read_input-->client_read-->tcp_data_connect-->turn_tcp_connection_bind
+    bzero(&session.in_buffer.buf,MAX_STUN_MESSAGE_SIZE);
+    //printf("sizeof(session.in_buffer.buf) %llu\n",sizeof(session.in_buffer.buf));
+    printf("------2\n");
     client_read_input(&session);
+    printf("------3\n");
+
     while (1)
 		{
 	printf("set_buffer_to_send, client_write: enter when both clients are ready to send data\n");
     //getchar();
     set_buffer_to_send(clmessage_length, idx);
+    printf("------4\n");
 	client_write(&session);
+	printf("------5\n");
     printf("client_read_input: enter when both clients are ready to receive data\n");
    // getchar();
-	//
+	bzero(&session.in_buffer.buf,MAX_STUN_MESSAGE_SIZE);
+	printf("------6\n");
+	stun_buffer response_message;
+	do {
+	sleep(0.5);
     client_read_input(&session);
-	/*
-    for (i = 0; i < (int)session.in_buffer.len - 16; i++) {
-        printf("received byte = %c\n", (char)session.in_buffer.buf[i+16]);
-    }
-    */
+
+    printf("------7\n");
     printf("received msg = %s\n", &session.in_buffer.buf);
+    if (session.in_buffer.buf)
+    break;
+    }while (1);
     bzero(&session.in_buffer.buf,MAX_STUN_MESSAGE_SIZE);
     time_t t = time(NULL);
-    struct tm tm = *localtime(&t); 
+    struct tm tm = *localtime(&t);
     printf("now: %d-%d-%d %d:%d:%d\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
     refresh_channel(&session, 0, 6000);
+    //recv_buffer(clnet_info, &response_message, 1, 0, NULL, NULL);
+    //printf("response_message = %s\n", response_message);
     //getchar();
 		}
     return 0;

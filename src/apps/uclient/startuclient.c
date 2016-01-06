@@ -88,7 +88,7 @@ int clnet_connect(uint16_t clnet_remote_port, const char *remote_address,
         TURN_LOG_FUNC(TURN_LOG_LEVEL_INFO, "%s: cannot connect to remote addr: %d\n", __FUNCTION__, connect_err);
         return -1;
     }
-    
+
     addr_cpy(&(clnet_info->remote_addr), &remote_addr);
     addr_cpy(&(clnet_info->local_addr), &local_addr);
     clnet_info->fd = clnet_fd;
@@ -136,7 +136,7 @@ int clnet_allocate(app_ur_conn_info *clnet_info, ioa_addr *relay_addr, int af, c
     if (stun_attr_get_addr(&response_message, sar, relay_addr, NULL) < 0) {
         TURN_LOG_FUNC(TURN_LOG_LEVEL_INFO, "%s: !!!: relay addr cannot be received (1)\n", __FUNCTION__);
         return -1;
-    } 
+    }
 
     char addrbuf[INET6_ADDRSTRLEN];
     inet_ntop(AF_INET, &relay_addr->s4.sin_addr, addrbuf, INET6_ADDRSTRLEN);
@@ -212,7 +212,7 @@ int turn_create_permission(app_ur_conn_info *clnet_info, ioa_addr *peer_addr, in
 int start_c2c_connection
 (
     uint16_t clnet_remote_port0,
-    const char *remote_address0, 
+    const char *remote_address0,
     const unsigned char* ifname,
     const char *local_address,
     app_ur_conn_info *clnet_info_probe,
@@ -220,7 +220,7 @@ int start_c2c_connection
     uint16_t *chn1,
     app_ur_conn_info *clnet_info1_rtcp,
     uint16_t *chn1_rtcp,
-    app_ur_conn_info *clnet_info2, 
+    app_ur_conn_info *clnet_info2,
     uint16_t *chn2,
     app_ur_conn_info *clnet_info2_rtcp,
     uint16_t *chn2_rtcp
