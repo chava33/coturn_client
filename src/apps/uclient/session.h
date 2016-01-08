@@ -49,9 +49,9 @@ extern "C" {
 ///////// types ////////////
 
 enum _UR_STATE {
-  UR_STATE_UNKNOWN=0,
-  UR_STATE_READY,
-  UR_STATE_DONE
+    UR_STATE_UNKNOWN=0,
+    UR_STATE_READY,
+    UR_STATE_DONE
 };
 
 typedef enum _UR_STATE UR_STATE;
@@ -60,72 +60,75 @@ typedef enum _UR_STATE UR_STATE;
 
 typedef struct
 {
-	/* RFC 6062 */
-	u32bits cid;
-	ioa_addr tcp_data_local_addr;
-	ioa_socket_raw tcp_data_fd;
-	SSL *tcp_data_ssl;
-	int tcp_data_bound;
+    /* RFC 6062 */
+    u32bits cid;
+    ioa_addr tcp_data_local_addr;
+    ioa_socket_raw tcp_data_fd;
+    SSL *tcp_data_ssl;
+    int tcp_data_bound;
 } app_tcp_conn_info;
 
-typedef struct {
-  ioa_addr local_addr;
-  char	lsaddr[129];
-  ioa_addr remote_addr;
-  char rsaddr[129];
-  char ifname[129];
-  ioa_addr peer_addr;
-  ioa_addr relay_addr;
-  ioa_socket_raw fd;
-  SSL *ssl;
-  int broken;
-  u08bits nonce[STUN_MAX_NONCE_SIZE+1];
-  u08bits realm[STUN_MAX_REALM_SIZE+1];
-  /* oAuth */
-  int oauth;
-  u08bits server_name[STUN_MAX_SERVER_NAME_SIZE+1];
-  hmackey_t key;
-  int key_set;
-  int cok;
-  /* RFC 6062 */
-  app_tcp_conn_info **tcp_conn;
-  size_t tcp_conn_number;
-  int is_peer;
-  char s_mobile_id[33];
+typedef struct
+{
+    ioa_addr local_addr;
+    char	lsaddr[129];
+    ioa_addr remote_addr;
+    char rsaddr[129];
+    char ifname[129];
+    ioa_addr peer_addr;
+    ioa_addr relay_addr;
+    ioa_socket_raw fd;
+    SSL *ssl;
+    int broken;
+    u08bits nonce[STUN_MAX_NONCE_SIZE+1];
+    u08bits realm[STUN_MAX_REALM_SIZE+1];
+    /* oAuth */
+    int oauth;
+    u08bits server_name[STUN_MAX_SERVER_NAME_SIZE+1];
+    hmackey_t key;
+    int key_set;
+    int cok;
+    /* RFC 6062 */
+    app_tcp_conn_info **tcp_conn;
+    size_t tcp_conn_number;
+    int is_peer;
+    char s_mobile_id[33];
 } app_ur_conn_info;
 
-typedef struct {
-  app_ur_conn_info pinfo;
-  UR_STATE state;
-  unsigned int ctime;
-  uint16_t chnum;
-  int wait_cycles;
-  int timer_cycle;
-  int completed;
-  struct event *input_ev;
-  struct event *input_tcp_data_ev;
-  stun_buffer in_buffer;
-  stun_buffer out_buffer;
-  u32bits refresh_time;
-  u32bits finished_time;
-  //Msg counters:
-  int tot_msgnum;
-  int wmsgnum;
-  int rmsgnum;
-  int recvmsgnum;
-  u32bits recvtimems;
-  u32bits to_send_timems;
-  //Statistics:
-  size_t loss;
-  u64bits latency;
-  u64bits jitter;
+typedef struct
+{
+    app_ur_conn_info pinfo;
+    UR_STATE state;
+    unsigned int ctime;
+    uint16_t chnum;
+    int wait_cycles;
+    int timer_cycle;
+    int completed;
+    struct event *input_ev;
+    struct event *input_tcp_data_ev;
+    stun_buffer in_buffer;
+    stun_buffer out_buffer;
+    u32bits refresh_time;
+    u32bits finished_time;
+    //Msg counters:
+    int tot_msgnum;
+    int wmsgnum;
+    int rmsgnum;
+    int recvmsgnum;
+    u32bits recvtimems;
+    u32bits to_send_timems;
+    //Statistics:
+    size_t loss;
+    u64bits latency;
+    u64bits jitter;
 } app_ur_session;
 
 ///////////////////////////////////////////////////////
 
-typedef struct _message_info {
-	int msgnum;
-	u64bits mstime;
+typedef struct _message_info
+{
+    int msgnum;
+    u64bits mstime;
 } message_info;
 
 ///////////////////////////////////////////////////////////////////////////////
